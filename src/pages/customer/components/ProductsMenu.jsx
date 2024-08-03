@@ -35,12 +35,13 @@ const ProductsMenu = ({ dropName }) => {
         setAnchorEl(null);
     };
 
-    const uniqueItems = productData?.filter((data, index, self) => {
-        return (dropName === "Categories" ?
-            self.findIndex((item) => item.category === data.category) === index :
-            self.findIndex((item) => item.subcategory === data.subcategory) === index
-        );
-    });
+    const uniqueItems = Array.isArray(productData)
+  ? productData.filter((data, index, self) => {
+      return dropName === "Categories"
+        ? self.findIndex((item) => item.category === data.category) === index
+        : self.findIndex((item) => item.subcategory === data.subcategory) === index;
+    })
+  : [];
 
     const catHandler = (key) => {
         setAnchorEl(null);
