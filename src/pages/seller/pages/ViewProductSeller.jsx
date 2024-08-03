@@ -18,7 +18,7 @@ const ViewProductSeller = () => {
   const productID = params.id;
 
   const [showTab, setShowTab] = useState(false);
-
+  const buttonText = showTab ? 'Cancel' : 'Edit';
   useEffect(() => {
     dispatch(getProductDetails(productID));
   }, [productID, dispatch]);
@@ -296,10 +296,10 @@ const ViewProductSeller = () => {
                       <ReviewCard key={index}>
                         <ReviewCardDivision>
                           <Avatar sx={{ width: "60px", height: "60px", marginRight: "1rem", backgroundColor: generateRandomColor(review._id) }}>
-                            {String(reviewreviewername).charAt(0)}
+                            {String(review.reviewer.name).charAt(0)}
                           </Avatar>
                           <ReviewDetails>
-                            <Typography variant="h6">{reviewreviewername}</Typography>
+                            <Typography variant="h6">{review.reviewer.name}</Typography>
                             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
 
                               <Typography variant="body2">
