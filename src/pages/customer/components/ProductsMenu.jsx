@@ -64,7 +64,7 @@ const ProductsMenu = ({ dropName }) => {
                 aria-expanded={open ? 'true' : undefined}
                 disableElevation
                 onClick={handleClick}
-                endIcon={open ? <KeyboardArrowDown /> : <KeyboardArrowUp />}
+                endIcon={open ? <KeyboardArrowUp /> : <KeyboardArrowDown />} // *** Bug ***
             >
                 {dropName}
             </LightPurpleButton>

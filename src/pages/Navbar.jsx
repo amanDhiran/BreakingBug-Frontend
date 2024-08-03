@@ -32,15 +32,15 @@ const Navbar = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch();
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
 
     React.useEffect(() => {
         if (currentRole === "Customer") {
             console.log(currentUser);
             dispatch(updateCustomer(currentUser, currentUser._id));
         }
-    }, [currentRole, currentUser, dispatch, ancorElNav])
+    }, [currentRole, currentUser, dispatch, anchorElNav]) //***Bug ***
 
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [anchorElSign, setAnchorElSign] = React.useState(null);
 
@@ -49,16 +49,15 @@ const Navbar = () => {
 
     const [isCartOpen, setIsCartOpen] = React.useState(false);
 
-    // Cart
-    const handleOpen Cart = () => {
+    // *** Bug *** function handleOpenCart was not formatted right.
+    const handleOpenCart = () => { 
         setIsCartOpen(true);
     };
 
-    const handleOpenCart = () => {
+    const handleCloseCart = () => {// *** Bug *** this function was "handleOpenCart" it should be "handleCloseCart" 
         setIsCartOpen(false);
     };
 
-    // Navigation Menu
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -67,7 +66,6 @@ const Navbar = () => {
         setAnchorElNav(null);
     };
 
-    // User Menu
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
@@ -76,7 +74,6 @@ const Navbar = () => {
         setAnchorElUser(null);
     };
 
-    // Signin Menu
     const handleOpenSigninMenu = (event) => {
         setAnchorElSign(event.currentTarget);
     };

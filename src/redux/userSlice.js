@@ -170,8 +170,9 @@ const userSlice = createSlice({
         },
 
         isTokenValid: (state) => {
-            const decodedToken = jwtDecode(state.currentToken);
-            if (state.currentToken) {              state.isLoggedIn = true;
+            //***Bug *** jwtDecode was throwing an error
+            if (state.currentToken) {
+                state.isLoggedIn = true;
             } else {
                 localStorage.removeItem('user');
                 state.currentUser = null;
@@ -311,6 +312,8 @@ export const {
     removeAllFromCart,
     fetchProductDetailsFromCart,
     updateCurrentUser,
+    getCustomersListFailed, // *** Bug
+    setFilteredProducts, // *** Bug
     
 } = userSlice.actions;
 

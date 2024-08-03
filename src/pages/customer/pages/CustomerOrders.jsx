@@ -17,10 +17,10 @@ const CustomerOrders = () => {
 
     const dispatch = useDispatch()
 
-    const { currentUser, loading, responseSpecificProducts } = useSelector(state => state.user);
+    const { currentUser, loading, responseSpecificProducts,specificProductData } = useSelector(state => state.user); // ***Bug***
 
     useEffect(() => {
-        dispatch(getSpecificProducts("getOrderedProductsByCustomer"));
+        dispatch(getSpecificProducts(currentUser._id, "getOrderedProductsByCustomer")); // *** Bug ***
     }, [dispatch]);
 
     const sortOptions = [
