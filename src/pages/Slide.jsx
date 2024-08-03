@@ -6,7 +6,7 @@ import "react-multi-carousel/lib/styles.css";
 
 const Slide = ({ products, title }) => {
     const navigate = useNavigate()
-
+    const productList = Array.isArray(products) ? products : [];
     return (
         <Component>
             <Deal>
@@ -36,7 +36,7 @@ const Slide = ({ products, title }) => {
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px">
                 {
-                    products?.map((product, index) => (
+                    productList?.map((product, index) => (
                         <Link key={index} to={`/product/view/${product._id}`} style={{ textDecoration: 'none' }}>
                             <Box textAlign="center" style={{ padding: '25px 15px' }}>
                                 <Image src={product.productImage} />
