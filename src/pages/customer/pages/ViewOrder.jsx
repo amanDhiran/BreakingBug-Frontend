@@ -153,10 +153,10 @@ const ViewOrder = () => {
                                             <ReviewCard key={index}>
                                                 <ReviewCardDivision>
                                                     <Avatar sx={{ width: "60px", height: "60px", marginRight: "1rem", backgroundColor: generateRandomColor(review._id) }}>
-                                                        {String(review.reviewer.name).charAt(0)}
+                                                        {String(reviewreviewername).charAt(0)}
                                                     </Avatar>
                                                     <ReviewDetails>
-                                                        <Typography variant="h6">{review.reviewer.name}</Typography>
+                                                        <Typography variant="h6">{reviewreviewername}</Typography>
                                                         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
 
                                                             <Typography variant="body2">
